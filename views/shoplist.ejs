@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<body>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <div class="container">
+    <header class="jumbotron">
+  <h2> Hello  <%=name%> </h2>
+</header>
+</div>
+    <input type="Text" id="shopname" placeholder="Register new Shop" />
+    <input type="hidden" id="phone" value= <%=phone%> />
+    <input type="hidden" id="name" value= <%=name%> />
+    <input type="button" value="Register" id="addShopBtn" />
+
+  <script>
+
+  var phone = document.getElementById("phone").value;
+  var name = document.getElementById("name").value;
+
+  $("#addShopBtn").click(function(){
+    var shopname=document.getElementById("shopname").value;
+    $.post("/addShop",
+    {
+      shopname:shopname,
+      name:name,
+      phone:phone
+    },
+    function(data,status){
+      console.log(data);
+      myfun();
+    });
+  });
+  </script>
+  <div class="row" style="display:flex; flex-wrap:wrap;">
+    <% for( var i=0;i< l1.length;i++){ %>
+      <div class="col-md-3 col-sm-6 col-lg-3">
+        <div class="thumbnail">
+        there is image
+
+        <div class="caption">
+      <form action="/shop" method="post" >
+         <%= l1[i] %>
+        <input type="hidden" name ="phone" value=<%=phone%> >
+        <input type="hidden" name ="shop" value= <%=l1[i]%> >
+        <input type="hidden" name ="n1" value= <%=name%>    >
+        <input type="Submit" value="Visit Shop" /></form>
+        </div>
+        </div>
+      </div>
+    <%}%>
+</div>
+</div>
+<% function myfun(){ %>
+  console.log("hello");
+  <% } %>
+<% } %>
+</body>
+</html>
