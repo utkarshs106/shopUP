@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <div class="Header">
+        <div id="mainTag">
+            <h2>Grocy</h2>
+        </div>
+        <div id="searchHere">
+            <input type="text" style="height: 30px; width:400px" placeholder="Search your Item"> <input type="button" value="Search">
+        </div>
+        <input type="button" value="signUP" style="position: relative;left: 270px;">
+        <input type="button" value="Register" style="position: relative;left: 300px;">
+        <input type="button" value="My cart" style="position: relative;left: 350px;">
+        </div>
+        <br><br><br>
+        <!-- <div class="listOfShops">
+        <div class="list"><input type="button" value="Stationary"></div>
+        <div class="list" style="left:100px"><input type="button" value="chemist"></div>
+        <div class="list" style="left:200px"><input type="button" value="Hardware"></div>
+        <div class="list" style="left:300px"><input type="button" value="Electronics"></div>
+        <div class="list" style="left:400px"><input type="button" value="Cosmetics"></div>
+        <div class="list" style="left:500px"><input type="button" value="Grocerry"></div>
+        <div class="list" style="left:600px"><input type="button" value="Food"></div>
+        </div><br><br><br><br> -->
+
+        <!-- <div class="container">
+        <div class="row space" style="display:flex; flex-wrap:wrap;">
+            <% for( var i=0;i<l1.length;i++){  %>
+              <div class="col-md-3 col-sm-6 col-lg-3">
+                <div class="typeOfShop" id="click">
+                <div class="thumbnail items">
+                <img src="<%= link[i] %>" height="200px" width="200px">
+                </div>
+                <div class="caption items">
+                 <%= l1[i] %>                
+                </div>
+                </div>
+                <br><br>
+              </div>
+            <%}%>
+        </div>
+    </div> -->
+    <br><br><br><br>
+    <div style="height: 400px;width: 400px;">
+        <input type="button" class="leftMoment" value =">" style="position: relative; left:30px; top:180px">
+        <input type="button" class="rightMoment" value ="<" style="position: relative; left:330px; top:180px">
+        <img src=list1[1] alt="">
+        </div>
+   
+   <script>
+       var list1=[
+       "https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg",
+       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSug6TNMvauPpRRGenTIDzo1uGUaKmyr6SwgQ&usqp=CAU"
+       ];
+       $("img").attr("src",list1[1]);
+       var x=1;
+
+       $(".leftMoment").click(function(){
+           if(x>1){
+            $("img").attr("src",list1[x-1])
+            console.log("clicked");
+            x=x-1;
+           }
+       });
+       
+       $(".rightMoment").click(function(){
+           if(x<list1.length){
+            $("img").attr("src",list1[x+1]);
+            console.log("right clicked");
+            x=x+1;
+           }
+       });
+       
+
+       $(".typeOfShop").click(function(){
+          var a =  $(this).children();
+           console.log(a[1].innerHTML);
+       });
+       $(".list").click(function(){
+           console.log("hii");
+           console.log("button clicked");
+       });
+
+
+      
+   </script>
+   <style>
+    #mainTag {
+    position: relative;
+    left:50px;
+    width: 110px;
+    float: left;
+    height: auto;
+    }
+
+    #mainTag:hover{
+        bottom:10px;
+    }
+
+    #searchHere {
+    position: relative;
+    left:250px;
+    width: 500px;
+    float: left;
+    height: auto;
+    }
+    .caption{
+        text-align: center;
+    }
+    .items{
+        position: relative;
+        height:auto;
+        width:204px;
+        border: 2px solid black;
+    }
+    .container{
+        position:relative;
+        top:150px;
+    }
+    .list{
+        position: relative;
+        float: left;
+        font-size: 30px;
+        border: 2px solid red;
+       transition: bottom 2s;
+    }
+    .list:hover{
+         bottom:3px;
+         }
+    .list.pointer{
+        cursor: hand;
+    }
+    .listOfShops{
+        position:relative;
+        left:150px;
+        top:100px;
+    }
+    body {
+    background-color: #f8b195;
+    }
+    .typeOfShop{
+   transition: transform .2s;
+   margin: 0 auto;
+    }
+   .typeOfShop:hover {
+   -ms-transform: scale(1.08); /* IE 9 */
+   -webkit-transform: scale(1.08); /* Safari 3-8 */
+   transform: scale(1.08); 
+    }
+    .header{
+    position: relative;
+    left:250px;
+    top:50px;
+    width: 1300px;
+    float: left;
+    height: auto;
+    }
+    img{
+        height:400px;
+        width:400px;
+    }
+    </style>
+    </body>
+</html>
